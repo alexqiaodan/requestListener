@@ -59,15 +59,6 @@ class GetRequestInfoFilter:
             flag = False  # 服务器端口不通
         return flag
 
-    def uploadRequestInfo(self):
-        headers = {
-            'Cookie': 'firstentry=%2Flogin.do|; usertrack=O2/vPGAJJf9IBwV7Vf0jAg==; __LOFTER_TRACE_UID=3D2694A828E84D868147016E89C9839D#1274535779#0; NTES_PASSPORT=6qAonY4xYnJ1EUJ9yzE9JCIFKkcSjxNEZD8kbAnTOGrE5PbfT5eb_gqvTs_bogZ9FRP74VWBjJxETfl3qg0AzCc4qdv3uZFMLqqTVi_1Wab.k3E9Pd7fBdqy4Xg.bxjbqu8YDU.f2YCzjx0qbvHOERAzLo_XBBcoicC1WA_ULaZNDns4ieOnPZ_XM; NTES_SESS=0dhcB5K1j4LwSrI5OwBd8RO8H9oLsDVE5ItQTKvtFk2MYlSmBYhS.96ABv.SM9N2PXqYURxCGzgJ54W7f8lidqyGSdgRS7qMff3cVfR5vTONJuacXgUCMXNUYGYQo.oIzG.Niix4LTgQaMT7OL0GTw5capyglumuV2RM6jJm1UESLkCbCInoLsOwjZkobW438; P_INFO=ad_lofter0010@163.com|1611212323|1|lofter|00&99|zhj&1611050242&lofter#zhj&330100#10#0#0|&0|blog|ad_lofter0010@163.com; S_INFO=1611212323|0|2&10##|ad_lofter0010; JSESSIONID-WLF-XXD=2aaeab7be1053840c5a6567d304877984fab235eca29a9a8724fd1c0798c59ac999a660bf64ff9050bbafbbea9909eef23d0dfb23484b5e57e19168f1d01c0d8d8c17c93b7b082b364a6d04628fd35e06e6ef863f57f9aeaacd39f99bce5ed1f7c7181fdd9155b7afb230b51ee52f1388d5799a38319bee77779d73356196f3e80f8233d; noAdvancedBrowser=0; fastestuploadproxydomainkey=uploadbj|1611212325652; NTESwebSI=A4DC3E0D5F62C3891E9515361FA05DCC.hzayq-lofter-web22.server.163.org-8010',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept' : '*/*'
-        }
-        url = 'https://www.lofter.com/videoCheckScript.do'
-        data = {'op': 'getImportVideoPost', 'id': id, 'status': 2, 'limit': 150}
-
     def request(self, flow: http.HTTPFlow) -> None:
         return
 
@@ -104,7 +95,7 @@ class GetRequestInfoFilter:
                                 'Content-Type': 'application/x-www-form-urlencoded',
                                 'Accept': '*/*'
                         }
-                        uploadUrl = "http://10.219.9.104:10000/qabackend/uploadAbnormalInfo/"
+                        uploadUrl = "http://*.*.*.*:10000/qabackend/uploadAbnormalInfo/"
                         uploadData = {'clientIP': str(clientIp),
                                       'user': "monkey",
                                       'hostIP': ServerIp,
@@ -144,7 +135,7 @@ class GetRequestInfoFilter:
 
 filter_info = [
     {
-        "str_in_url": ".lofter.com",
+        "str_in_url": ".xxx.com",
         "log_file": "filter.txt",
         "switch_on": True,
         "response_file": None,
